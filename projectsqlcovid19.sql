@@ -24,6 +24,12 @@ from PortfolioProject..CovidDeaths
 where continent is not null
 order by 1,2
 
+--
+select location, population, date, max(total_cases) as highestinfectioncount, max((total_cases/population))*100 as Percentpopulationinfected
+from PortfolioProject..CovidDeaths
+group by location, population, date
+order by Percentpopulationinfected desc
+
 --totalcases and population
 select location, date, population, total_cases, (total_cases/population)*100 as Percentpopulationinfected
 from PortfolioProject..CovidDeaths
