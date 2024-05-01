@@ -17,6 +17,13 @@ from PortfolioProject..CovidDeaths
 where continent is not null
 order by 1,2
 
+--totaldeaths/totalcases in the world
+select sum(new_cases) as total_cases, sum(cast(new_deaths as int)) as total_deaths, (sum(cast(new_deaths as int))/sum(new_cases))*100 as
+DeathPercentage
+from PortfolioProject..CovidDeaths
+where continent is not null
+order by 1,2
+
 --totalcases and population
 select location, date, population, total_cases, (total_cases/population)*100 as Percentpopulationinfected
 from PortfolioProject..CovidDeaths
